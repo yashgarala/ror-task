@@ -1,6 +1,6 @@
 
 
-#----------------Module -------------
+#----------------Module ---------------
 #1 You cannot inherit modules or you can’t create a subclass of a module.
 #2 Objects cannot be created from a module.
 #3 Modules are used as namespaces and as mixins.
