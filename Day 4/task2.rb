@@ -26,9 +26,12 @@ puts grades.invert
 x=grades.delete("Abc Def")
 print(x)
 puts("\n")
+grades["aa"]=1111
+x=grades.delete("aa"){ |el| "#{el} not found" }
+print("with aa ",x,"\n")
 
 x=grades.delete("aa"){ |el| "#{el} not found" }
-print(x)
+print("without aa ",x,"\n")
 puts("\n")
 grades["aaaa"]=-1;
 grades["bb"]=-1;

@@ -1,0 +1,39 @@
+
+1) strptime VS strftime
+	
+	# strptime
+		-Parses the given representation of date and time with the 
+		 given template, and creates a DateTime object. strptime 
+		 does not support specification of flags and width unlike strftime.
+		
+		-strptime is short for "parse time" 
+			
+		-format = "%d/%m/%Y %H:%M:%S"
+		 date_time = "21/03/2011 16:39:11.642"
+		 puts DateTime.strptime(date_time, format)
+	#strftime
+		-Formats date according to the directives in the given
+		 format string. The directives begin with a percent (%) character.
+		 Any text not listed as a directive will be passed through to
+		 the output string.	
+		
+	
+
+2) loop vs itrator
+	#loop
+		-it is too easy to break your program by 
+		 producing a so called infinite loop, if you fail to ensure 
+		 that the termination condition really occurs
+	#itrator
+		-it don`t go into infinite
+		- you can define custom iterators for your special looping needs 
+		
+		# loop               vs.           iterator
+
+		i = 0                              5.times do
+		while i < 5                         
+		  puts "hello"                       puts "hello"
+		  i += 1
+		end                                end
+		
+
