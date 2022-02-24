@@ -36,11 +36,30 @@ Exception
 2: write a program that raise the Exception
 =end
 
+# what is ??
+# class CircuitError < StandardError
+#     def initialize(message, state)
+#       super(message)
+#       @state = state
+#     end
+#     attr_reader :state
+#   end
+
+class CustomError <StandardError
+     def initialize(msg="")
+        super
+        
+    end
+end
+
 def raise_exception()
     begin
-        raise "Yash"
-    rescue => exception
-        print_err('Yash',exception)
+        raise CustomError.new("Yash message")
+    rescue CustomError=> exception
+        
+        print_err(CustomError,exception)
+        print exception.backtrace.join("\n")
+        puts ""
     end
 end
 def NoMemoryError_def()
