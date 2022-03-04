@@ -9,17 +9,43 @@ Explanation: numbers[0] + numbers[2] = 13
    
 =end
 
-number=[2,7,11,15]
-result = 13
-ans=[]
-number.each.with_index do |x,i|
-    index_of_diff=number.find_index(result-x);
-    
-    unless (index_of_diff.nil?)
-        ans<<i<<index_of_diff;
-        break
+# Time Complexity O(nlogn)
+
+def two_sum(number,result)
+
+    number.sort
+    number.each.with_index do |x,i|
+        l=i+1
+        r=number.length-1;
+        target=result-x
+        while(l<=r)
+            mid=l+(r-l)/2
+            if(number[mid]==target)
+                return [i,mid]
+            elsif(number[mid]<target)
+                l=mid+1
+            else
+                r=mid-1    
+            end
+
+        end
     end
-    
+
+    return []
 end
 
-p ans
+number=[2,7,11,15]
+result = 13
+
+p two_sum(number,result)
+
+number=[3,3]
+result = 6
+
+p two_sum(number,result)
+
+number=[1,2,3,4,5]
+result = 1000
+
+p two_sum(number,result)
+
