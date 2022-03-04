@@ -10,7 +10,6 @@ Explanation: numbers[0] + numbers[2] = 13
 =end
 
 # Time Complexity O(nlogn)
-
 def two_sum(number,result)
 
     number.sort
@@ -34,18 +33,37 @@ def two_sum(number,result)
     return []
 end
 
+# Time comlexity O(n) Space O(n) 
+def two_sum_hash(number,result)
+    hash={}
+    # hash.default(key=-1)
+    n=number.length
+    i=0
+    while i<n
+        temp=result-number[i]
+    
+        if(hash.key?(temp))
+            return [hash[temp],i]
+        else
+            
+            hash[number[i]]=i
+        end
+        i+=1
+    end
+    return []
+end
 number=[2,7,11,15]
 result = 13
 
-p two_sum(number,result)
+p two_sum_hash(number,result)
 
 number=[3,3]
 result = 6
 
-p two_sum(number,result)
+p two_sum_hash(number,result)
 
 number=[1,2,3,4,5]
 result = 1000
 
-p two_sum(number,result)
+p two_sum_hash(number,result)
 
