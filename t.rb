@@ -81,8 +81,13 @@ p s1.foo #=> "foo"
 s2 = s1.clone #=> #
 p s2.foo #=> "foo"
 
-s3 = s1.dup #=> #
-s3.str="Yash"
-p s3.str
-s3.foo #=> NoMethodError: undefined method `foo' for 
+
+numbers = [0,00]
+
+c = numbers.uniq
+while   c.length != numbers.length 
+     c << nil    
+end
+print c
+
 
