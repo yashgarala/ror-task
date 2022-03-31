@@ -1,0 +1,49 @@
+<h3>Create a User</h3>
+ 
+<%= form_with model: @abcd ,:url => {:action => :create} do |form|%>
+
+    <%= form.label :username%>    
+    <%= form.text_field :username, placeholder: "username"%><br>
+    <% @abcd.errors.full_messages_for(:username).each do |message| %>
+      <div style="color: red; font-weight: bolder;" ><%= message %></div>
+    <% end %>
+    <br>
+    <%= form.label :password%>    
+    <%= form.password_field :password, placeholder: "password"%>
+    <br>
+    <% @abcd.errors.full_messages_for(:password).each do |message| %>
+      <div style="color: red; font-weight: bolder;" ><%= message %></div>
+    <% end %>
+<br>
+    <%= form.label :age%>
+    
+    <%= form.number_field :age, placeholder: "age"%>
+    <br>
+    <% @abcd.errors.full_messages_for(:age).each do |message| %>
+      <div style="color: red; font-weight: bolder;" ><%= message %></div>
+    <% end %>
+<br>
+    <%= form.label :birth_date%>
+    <%= form.date_field :birth_date, placeholder: "birth_date"%>
+    <br>
+    <% @abcd.errors.full_messages_for(:birth_date).each do |message| %>
+      <div style="color: red; font-weight: bolder;" ><%= message %></div>
+    <% end %>
+    <br>
+   <%= form.label :email%>
+   
+    <%= form.email_field :email, placeholder: "email"%>
+   <br>
+    <% @abcd.errors.full_messages_for(:email).each do |message| %>
+      <div style="color: red; font-weight: bolder;" ><%= message %></div>
+    <% end %>
+    <br>
+    <%= form.label :number, placeholder: "number"%>
+    <%= form.telephone_field :number, placeholder: "number"%>
+    <% @abcd.errors.full_messages_for(:number).each do |message| %>
+      <div style="color: red; font-weight: bolder;" ><%= message %></div>
+    <% end %>
+<br>
+
+    <%= form.submit %>
+<%end%>

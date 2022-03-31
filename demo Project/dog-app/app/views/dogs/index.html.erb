@@ -1,0 +1,19 @@
+
+<table>
+<% @dogs.each do |dog|%>
+    <tr>
+        <td>
+            <%= link_to dog.name, dog_path(dog)%>
+        </td>
+        <td>
+            <%= button_to 'Edit' , edit_dog_path(dog),method:'get'%>
+        </td>
+        <td>
+                <%= button_to "Delete", dog_path(dog) , :confirm => "Are you sure?", :method => :delete %>
+         </td>
+          
+    </tr>
+<% end %>
+
+</table>
+<%=link_to "Add new Dog" , new_dog_path%>

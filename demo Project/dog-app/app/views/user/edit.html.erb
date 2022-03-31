@@ -1,0 +1,13 @@
+<h3>Update a User</h3>
+
+<%= form_with model: @user do |form|%>
+
+    <%= form.text_field :username, placeholder: "username"%>    
+    <%= form.password_field :password, placeholder: "password"%>
+    <%= form.number_field :age, placeholder: "age"%>
+    <%= form.date_field :birth_date, placeholder: "birth_date"%>
+    <%= form.email_field :email, placeholder: "email"%>
+    <%= form.telephone_field :number, placeholder: "number"%>
+
+    <%= form.submit %>
+<%end%>

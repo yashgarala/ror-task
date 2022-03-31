@@ -1,0 +1,53 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+
+Dog.create(name:'Nala',motto:'Born to be wild')
+Dog.create(name:'Alex',motto:'Calm as can be')
+Dog.create(name:'Leroy',motto:'Life of the pawty')
+Dog.create(name:'Belle',motto:'Miss independent')
+Dog.create(name:'Atom ',motto:'Happiness is a warm puppy.')
+Dog.create(name:'Pushpa ',motto:'Jukega nahi sala!')
+
+Author.create(name:"Alfredo Covelli")
+Author.create(name:"R. Kaushik")
+Author.create(name:"R. Giridharan")
+Author.create(name:"Lt. Gen. Konsam Himalay Singh")
+Author.create(name:"Foreman")
+Author.create(name:"Hawking")
+Author.create(name:"Dubner")
+
+Book.create(author_id:1,book:"Fundamentals of Wavelets",sold_quantity:50,name:"abc",published:true)
+Book.create(author_id:2,book:"Data Smart",sold_quantity:10,name:"",published:false)
+Book.create(author_id:3,book:"God Created the Integers	",sold_quantity:14220,name:"",published:true)
+Book.create(author_id:1,book:"Superfreakonomics",sold_quantity:102,name:"",published:true)
+Book.create(author_id:2,book:"Orientalism",sold_quantity:120,name:"",published:true)
+Book.create(author_id:1,book:"Nature of Statistical Learning Theory, The",sold_quantity:102,name:"",published:true)
+Book.create(author_id:4,book:"Integration of the Indian States",sold_quantity:10,name:"",published:true)
+Book.create(author_id:5,book:"Drunkard's Walk, The	",sold_quantity:1055,name:"",published:true)
+Book.create(author_id:6,book:"Image Processing & Mathematical Morphology	",sold_quantity:1780,name:"",published:true)
+Book.create(author_id:7,book:"How to Think Like Sherlock Holmes	",sold_quantity:180,name:"",published:true)
+Book.create(author_id:3,book:"Data Scientists at Work	",sold_quantity:107,name:"",published:true)
+Book.create(author_id:2,book:"Slaughterhouse Five	",sold_quantity:155,name:"",published:true)
+Book.create(author_id:4,book:"Birth of a Theorem	",sold_quantity:10,name:"",published:true)
+Book.create(author_id:3,book:"Structure & Interpretation of Computer Programs	",sold_quantity:10,name:"",published:true)
+Book.create(author_id:1,book:"Age of Wrath, The	",sold_quantity:10,name:"",published:false)
+Book.create(author_id:1,book:"Trial, The	",sold_quantity:10,name:"",published:false)
+Book.create(author_id:3,book:"Statistical Decision Theory'",sold_quantity:10,name:"",published:false)
+
+Review.create(ratings:9,user_id:1,description:"sddddddddddadffda",book_id:1)
+Review.create(ratings:4,user_id:2,description:"ewdfkhg uer",book_id:1)
+Review.create(ratings:3,user_id:3,description:"ewdfkhg uer aa",book_id:2)
+Review.create(ratings:5,user_id:4,description:"ewdfkhg uerewdfkhg uerewdfkhg uer",book_id:2)
+Review.create(ratings:6,user_id:3,description:"description:description:description:description:",book_id:3)
+Review.create(ratings:7,user_id:2,description:"saspapasp saiothus thus ",book_id:3)
+Review.create(ratings:10,user_id:2,description:"sdsd15 s64 05s6d4+ 0s",book_id:4)
+Review.create(ratings:9,user_id:3,description:"sdsd15 s64 05s6d4+ 0ssdsd15 s64 05s6d4+ 0s",book_id:5)
+Review.create(ratings:1,user_id:5,description:"aajg 7yuy7983u ]p][[d]s",book_id:6)
+Review.create(ratings:5,user_id:6,description:"sffsdds",book_id:7)
+Review.create(ratings:6,user_id:7,description:"a",book_id:1)
+Review.create(ratings:8,user_id:1,description:"b",book_id:2)
