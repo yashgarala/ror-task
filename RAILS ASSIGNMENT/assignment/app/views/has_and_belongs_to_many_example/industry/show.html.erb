@@ -1,0 +1,9 @@
+Name:<%=@industry.name%>
+<br>
+<hr>
+All Sectors inside 
+<hr>
+<%@industry.sectors.uniq.each do |x|%>
+    <%=x.name%><br>
+<%end%>
+

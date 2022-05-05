@@ -3,6 +3,7 @@
   <head>
     <title>Assignment</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,22 @@
   </head>
 
   <body>
+  <%# <%if(self.class.parent == )%>
+  <%if controller.class.name.split("::").first=="HasManyExample" %>
+    <div style="padding:10px ">
+    Assignment 1:- 
+      <%=link_to "Patients",has_many_example_patient_index_path, class:"btn btn-primary"%>
+      <%=link_to "Appointments",has_many_example_appointment_index_path, class:"btn btn-primary"%>
+      <%=link_to "Physicians",has_many_example_physician_index_path, class:"btn btn-primary"%>
+    <div>
+    <% elsif controller.class.name.split("::").first=="HasAndBelongsToManyExample"  %>
+    <div style="padding:10px ">
+    Assignment 2:- 
+      <%=link_to "Secotrs",has_and_belongs_to_many_example_sector_index_path, class:"btn btn-primary"%>
+      <%=link_to "Industry",has_and_belongs_to_many_example_industry_index_path, class:"btn btn-primary"%>
+    <div>
+    <%end%>
+    
     <%= yield %>
   </body>
 </html>

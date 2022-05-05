@@ -1,0 +1,2 @@
+module HasManyExample::PatientHelper
+end

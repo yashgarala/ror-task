@@ -1,0 +1,2 @@
+module HasAndBelongsToManyExample::SectorHelper
+end

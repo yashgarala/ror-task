@@ -1,0 +1,12 @@
+<%= button_to "New",  {action:"new"},:method => :get %>
+
+<%@appointments.each do |x|%>
+    <div>
+        <%=x.patient.name%>
+        <span style="color:red;margin-left:10px"><%=x.physician.name%></span>
+
+        <span style="color:blue;margin-left:10px"><%=x.appointment_date.localtime.strftime("%m/%d/%Y")%></span>
+
+    </div>
+    <br>
+<%end%>

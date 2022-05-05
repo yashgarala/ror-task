@@ -1,0 +1,7 @@
+Name:<%=@industry.name%>
+<%=form_with model:@industry, url:{action: "add_create_sector"} do |f|%>    
+    <%=f.select(:sector_id,@sector.collect{|d| [d.name,d.id]})%>
+
+    <%=f.submit%>
+    
+<%end%>

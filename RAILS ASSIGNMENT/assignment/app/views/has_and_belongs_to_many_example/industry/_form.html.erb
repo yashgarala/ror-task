@@ -1,0 +1,9 @@
+<%=form_with model:industry, url:{action: "create"} do |f|%>
+    
+    
+    <%= f.text_field :name,placeholder:"Name" %>
+    <%= f.text_field :email,placeholder:"Email" %>
+
+    <%=f.submit%>
+    
+<%end%>

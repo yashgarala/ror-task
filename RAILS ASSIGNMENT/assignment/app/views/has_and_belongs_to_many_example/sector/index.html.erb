@@ -1,0 +1,10 @@
+<%= button_to "New",  {action:"new"},:method => :get %>
+
+<%@sectors.each do |x|%>
+    <div>
+        <%=x.name%>
+        <%=link_to "Show sector",{action:"show",id:x}%>
+        <%=link_to "Add Industry",{action:"add_new_industry",sector_id:x.id}%>
+    </div>
+    <br>
+<%end%>

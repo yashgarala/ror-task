@@ -1,0 +1,12 @@
+<%= button_to "New",  {action:"new"},:method => :get %>
+
+<%@industrys.each do |x|%>
+    <div>
+        <%=x.name%>
+        <span style="color:red;margin-left:10px"><%=x.email%></span>
+        <span style="color:blue;margin-left:10px"><%=x.registration_number%></span>
+        <%=link_to "Show sector",{action:"show",id:x}%>
+        <%=link_to "Add sector",{action:"add_new_sector",industry_id:x.id}%>
+    </div>
+    <br>
+<%end%>

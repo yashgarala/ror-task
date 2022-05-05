@@ -1,0 +1,2 @@
+module HasManyExample::AppointmentHelper
+end

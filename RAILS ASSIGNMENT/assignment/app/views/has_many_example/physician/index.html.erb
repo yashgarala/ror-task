@@ -1,0 +1,12 @@
+<%= button_to "New",  {action:"new"},:method => :get %>
+
+<%@physicians.each do |x|%>
+    <div>
+        <%=x.name%>
+        <span style="color:red;margin-left:10px"><%=x.email%></span>
+        <span style="color:blue;margin-left:10px"><%=x.unique_id%></span>
+        
+        
+    </div>
+    <br>
+<%end%>
