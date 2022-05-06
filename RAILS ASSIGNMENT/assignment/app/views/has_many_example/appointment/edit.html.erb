@@ -3,7 +3,7 @@
    <p class="text-danger"> <%= error_message if @appointment.errors.full_messages.first == error_message %></p>
   <% end %>
 <% end %>
-<%=form_with model:@appointment, url:{action: "create"} do |f|%>
+<%=form_with model:@appointment, url:{action: "update"} do |f|%>
    
 <%= render 'form', f:f%>
 

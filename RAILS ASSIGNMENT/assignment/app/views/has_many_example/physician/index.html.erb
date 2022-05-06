@@ -1,12 +1,42 @@
 <%= button_to "New",  {action:"new"},:method => :get %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Physician</th>
+      <th scope="col">Email</th>
+      <th scope="col">Unique id</th>
+      <th scope="col"> </th>
+      
+    </tr>
+  </thead>
+   <tbody>
 
-<%@physicians.each do |x|%>
-    <div>
+<%@physicians.each_with_index do |x,index|%>
+        <tr>
+     <th scope="row"><%=index+1%></th>
+            <td>
         <%=x.name%>
+
+    </td>
+            <td>
         <span style="color:red;margin-left:10px"><%=x.email%></span>
+    </td>
+            <td>
+
         <span style="color:blue;margin-left:10px"><%=x.unique_id%></span>
+    </td>
+    <td  class="d-flex justify-content-around">
+            <%= button_to "delete", has_many_example_physician_path(x), :method => :delete,class:"btn btn-danger " %>
+<%=link_to "Edit",{action:"edit",id:x},class:"btn btn-primary"%>
+
+    </td>
+    </tr>
         
         
     </div>
-    <br>
+    
 <%end%>
+
+</tbody>
+</table>

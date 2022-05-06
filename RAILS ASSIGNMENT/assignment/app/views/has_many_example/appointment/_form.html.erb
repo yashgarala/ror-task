@@ -1,9 +1,8 @@
-<%=form_with model:appointment, url:{action: "create"} do |f|%>
+ 
+    <%=f.select(:physician_id,getPhysicians)%>
+    <%=f.select(:patient_id,getPatients)%>
     
-    <%=f.select(:physician_id,@physicians.collect{|d| [d.name,d.id]})%>
-    <%=f.select(:patient_id,@patients.collect{|d| [d.name,d.id]})%>
-    
-<%= f.date_select :appointment_date %>
+    <input type='date' name="appointment[appointment_date]"  value="<%=f.object.appointment_date.strftime("%Y-%m-%d")%>">
+
     <%=f.submit%>
     
-<%end%>

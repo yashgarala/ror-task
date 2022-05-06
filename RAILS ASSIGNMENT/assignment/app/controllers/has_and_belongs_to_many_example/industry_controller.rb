@@ -24,11 +24,31 @@ class HasAndBelongsToManyExample::IndustryController < ApplicationController
         @industry=Industry.find_by(id:params[:id]);
     end
     def create
-        industry_result=Industry.create(industry_param);
-        if(industry_result.save)
+        @industry=Industry.create(industry_param);
+        if( @industry.save)
             redirect_to action: 'index'
         else    
             render 'new', status: :unprocessable_entity 
+        end
+    end
+    def edit
+        @industry=Industry.find_by(id:params[:id])
+
+    end
+    def update
+        @industry=Industry.find_by(id:params[:id])
+        @industry.update(industry_param)
+        if(@industry.valid?)
+            redirect_to action: 'index'
+        else
+            render 'edit', status: :unprocessable_entity 
+        end
+    end
+    def destroy
+        @temp=Industry.find_by(id:params[:id]);
+        if(@temp!=nil)
+            @temp.destroy
+            redirect_to action: "index"
         end
     end
     private

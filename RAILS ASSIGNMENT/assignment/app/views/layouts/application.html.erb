@@ -12,6 +12,8 @@
   </head>
 
   <body>
+  <%=link_to "Home","/", class:"btn btn-primary"%>
+    
   <%# <%if(self.class.parent == )%>
   <%if controller.class.name.split("::").first=="HasManyExample" %>
     <div style="padding:10px ">
@@ -26,8 +28,8 @@
       <%=link_to "Secotrs",has_and_belongs_to_many_example_sector_index_path, class:"btn btn-primary"%>
       <%=link_to "Industry",has_and_belongs_to_many_example_industry_index_path, class:"btn btn-primary"%>
     <div>
+
     <%end%>
-    
     <%= yield %>
   </body>
 </html>

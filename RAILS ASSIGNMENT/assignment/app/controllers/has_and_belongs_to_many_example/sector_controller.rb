@@ -25,11 +25,31 @@ class HasAndBelongsToManyExample::SectorController < ApplicationController
         end
     end
     def create
-        secot_result=Sector.create(sector_param);
-        if(secot_result.save)
+        @sector=Sector.create(sector_param);
+        if(@sector.save)
             redirect_to action: 'index'
         else    
             render 'new', status: :unprocessable_entity 
+        end
+    end
+    def edit
+        @sector=Sector.find_by(id:params[:id])
+
+    end
+    def update
+        @sector=Sector.find_by(id:params[:id])
+        @sector.update(sector_param)
+        if(@sector.valid?)
+            redirect_to action: 'index'
+        else
+            render 'edit', status: :unprocessable_entity 
+        end
+    end
+    def destroy
+        @temp=Sector.find_by(id:params[:id]);
+        if(@temp!=nil)
+            @temp.destroy
+            redirect_to action: "index"
         end
     end
     private

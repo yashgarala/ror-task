@@ -3,7 +3,7 @@
     <p class="text-danger"> <%= error_message %></p> 
     <% end %>
 <% end %>
-<%=form_with model:@sector, url:{action: "create"} do |f|%>
+<%=form_with model:@sector, url:{action: "update"} do |f|%>
 
     <%= render 'form', f:f%>
 

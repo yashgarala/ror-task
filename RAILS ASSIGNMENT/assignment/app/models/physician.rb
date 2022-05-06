@@ -3,8 +3,8 @@ class Physician < ApplicationRecord
 
     validates :name, :email, presence: true
     validates :email,uniqueness: true
-    has_many :appointments
-    has_many :patient, through: :appointments
+    has_many :appointments, dependent: :destroy
+    has_many :patient, through: :appointments, dependent: :destroy
     
     protected
         def generate_token

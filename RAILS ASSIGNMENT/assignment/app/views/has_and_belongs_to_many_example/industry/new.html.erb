@@ -1,1 +1,11 @@
-<%= render 'form', industry:@industry%>
+<% if @industry.errors.full_messages.any? %>
+  <% @industry.errors.full_messages.each do |error_message| %>
+<p class="text-danger"> <%= error_message %></p>
+  <% end %>
+<% end %>
+<%=form_with model:@industry, url:{action: "create"} do |f|%>
+    
+    
+<%= render 'form', f:f%>
+
+<%end%>

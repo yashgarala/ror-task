@@ -1,10 +1,32 @@
 <%= button_to "New",  {action:"new"},:method => :get %>
-
-<%@sectors.each do |x|%>
-    <div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col"> </th>
+    </tr>
+  </thead>
+   <tbody>
+    
+<%@sectors.each_with_index do |x,index|%>
+    <tr>
+     <th scope="row"><%=index+1%></th>
+        <td>
+        
         <%=x.name%>
-        <%=link_to "Show sector",{action:"show",id:x}%>
-        <%=link_to "Add Industry",{action:"add_new_industry",sector_id:x.id}%>
-    </div>
-    <br>
+        </td>
+            <td class="d-flex justify-content-around">
+    
+        <%=link_to "Show sector",{action:"show",id:x},class:"btn btn-primary"%>
+        <%=link_to "Add Industry",{action:"add_new_industry",sector_id:x.id},class:"btn btn-primary "%>
+        <%= button_to "delete", has_and_belongs_to_many_example_sector_path(x), :method => :delete,class:"btn btn-danger " %>
+        <%=link_to "Edit",{action:"edit",id:x},class:"btn btn-primary"%>
+        
+        </td>
+        </tr>
 <%end%>
+
+
+</tbody>
+</table>

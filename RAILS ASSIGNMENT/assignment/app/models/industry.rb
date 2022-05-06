@@ -1,7 +1,7 @@
 class Industry < ApplicationRecord
     before_create :generate_token
 
-    has_and_belongs_to_many :sectors
+    has_and_belongs_to_many :sectors , dependent: :destroy
     validates :name,:email, presence: true
     validates :email,uniqueness: true
     protected
