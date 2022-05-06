@@ -1,6 +1,9 @@
 class HasAndBelongsToManyExample::IndustryController < ApplicationController
     def index
         @industrys =Industry.all
+        if(@industrys.size()<10)
+            add_industry
+        end
     end
     def new
         @industry =Industry.new
@@ -22,6 +25,9 @@ class HasAndBelongsToManyExample::IndustryController < ApplicationController
     
     def show
         @industry=Industry.find_by(id:params[:id]);
+        if(@industry.sectors.size()<10)
+            add_sector(@industry)
+        end
     end
     def create
         @industry=Industry.create(industry_param);
@@ -51,9 +57,41 @@ class HasAndBelongsToManyExample::IndustryController < ApplicationController
             redirect_to action: "index"
         end
     end
+    def delete_connection
+        industry= Industry.find_by(id:params[:industry_id])
+        sector = industry.sectors.where(id:params[:sector_id]).all
+        if sector
+            industry.sectors.delete(sector)
+            redirect_to has_and_belongs_to_many_example_industry_path(industry)
+        end
+     end
     private
     def industry_param
         params.require(:industry).permit(:name,:email)
     end
-    
+    def add_sector(industry)
+        sector=Sector.all
+        for value in (1..10) do
+            begin     
+            x=sector.sample
+            
+            industry.sectors<<x
+            rescue => exception
+               p exception
+                next 
+
+            end
+        end
+    end
+    def add_industry
+        for value in (1..30) do
+            begin
+                
+            x=Industry.create(name:Faker::IndustrySegments.industry,email:Faker::Internet.email)
+                
+            rescue => exception
+               next 
+            end
+        end
+    end 
 end

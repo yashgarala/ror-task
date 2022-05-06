@@ -1,9 +1,9 @@
 Name:<%=@sector.name%>
 <br>
 <hr>
-All Sectors inside 
+All industrys inside 
 <hr>
 <%@sector.industrys.uniq.each do |x|%>
-    <%=x.name%><br>
+    <%=x.name%> <%=button_to "Delete", has_and_belongs_to_many_example_sector_delete_connection_url(industry_id:x.id,sector_id:@sector.id),method:"delete"%><br>
 <%end%>
 

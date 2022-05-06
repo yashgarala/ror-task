@@ -1,6 +1,9 @@
 class HasAndBelongsToManyExample::SectorController < ApplicationController
     def index
         @sectors =Sector.all
+        if(@sectors.size()<10)
+            add_sector
+        end
     end
     def new
         @sector =Sector.new
@@ -8,7 +11,9 @@ class HasAndBelongsToManyExample::SectorController < ApplicationController
     def show
 
         @sector=Sector.find_by(id:params[:id]);
-        
+        if(@sector.industrys.size()<10)
+            add_industry( @sector)
+        end
     end
 
     def add_new_industry
@@ -52,9 +57,47 @@ class HasAndBelongsToManyExample::SectorController < ApplicationController
             redirect_to action: "index"
         end
     end
+    def delete_connection
+        
+        sector = Sector.find_by(id:params[:sector_id])
+        industry= sector.industrys.where(id:params[:industry_id]).all
+        if industry
+            p industry
+            sector.industrys.delete(industry)
+            redirect_to has_and_belongs_to_many_example_sector_path(sector)
+        end
+   
+     end
     private
     def sector_param
         params.require(:sector).permit(:name)
     end
+
+    def add_sector
+        for value in (1..10) do
+            begin
+    
+            x=Sector.create(name:Faker::Job.field)
+                
+            rescue => exception
+               next 
+            end
+        end
+    end 
+    def add_industry(sector)
+
+        industrys=Industry.all
+        for value in (1..10) do
+            begin     
+            x=industrys.sample
+            
+            sector.industrys<<x
+            rescue => exception
+               p exception
+                next 
+
+            end
+        end
+    end 
     
 end

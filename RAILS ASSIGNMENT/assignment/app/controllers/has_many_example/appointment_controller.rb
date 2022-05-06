@@ -48,8 +48,12 @@ class HasManyExample::AppointmentController < ApplicationController
         x=Patient.all
         y=Physician.all
         for i in (1..10) do
+           begin
            
-        Appointment.create(patient:x.sample,physician:y.sample,appointment_date:Faker::Date.forward(days: 30)) 
-        end
+            Appointment.create(patient:x.sample,physician:y.sample,appointment_date:Faker::Date.forward(days: 30)) 
+        rescue => exception
+                
+        end    
+    end
     end
 end

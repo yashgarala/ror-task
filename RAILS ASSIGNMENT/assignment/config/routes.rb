@@ -13,11 +13,13 @@ Rails.application.routes.draw do
     resources :sector do
       get "add_new_industry"
       patch "add_create_industry"
+      delete "delete_connection"
     end
 
     resources :industry do
       get "add_new_sector"
       patch "add_create_sector"
+      delete "delete_connection"
     end
 
   end

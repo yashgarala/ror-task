@@ -4,6 +4,6 @@ Name:<%=@industry.name%>
 All Sectors inside 
 <hr>
 <%@industry.sectors.uniq.each do |x|%>
-    <%=x.name%><br>
+    <%=x.name%> <%=button_to "Delete", has_and_belongs_to_many_example_industry_delete_connection_url(industry_id:@industry.id,sector_id:x.id),method:"delete"%> <br>
 <%end%>
 
