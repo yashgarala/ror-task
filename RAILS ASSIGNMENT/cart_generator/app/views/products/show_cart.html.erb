@@ -1,0 +1,33 @@
+<%total=0%>
+
+
+
+ <table border="1">
+  <tr>
+    <th>Product name</th>
+    <th>Product Price</th>
+    <th>Product Quality</th>
+    <th>Product Total Price</th>
+     <th> #</th>
+     <th> #</th>
+  </tr>
+    <%session["item"].uniq.each do |key|%>
+  
+  <tr>
+  <%curent_product=Product.find_by(id:key)%>
+      
+      <td><%=curent_product[:name]%> </td>
+      <td><%=curent_product[:price]%></td>
+      <td><b><%=session["item"].count(curent_product.id)%></b> </td>
+      <td><%=session["item"].count(curent_product.id)*curent_product[:price]%></b> </td>
+      <%total+=session["item"].count(curent_product.id)*curent_product[:price]%>
+      <td><%= link_to "Remove from  Cart",  remove_from_cart_products_path(curent_product) %>   </td>
+      <td><%= link_to "Add to Cart",  add_to_cart_products_path(curent_product) %>   </td>
+  
+</tr>
+ <%end%>
+
+</table> 
+<b>Total Price = <%=total%>
+<b>
+<%=link_to "Back","/"%>
