@@ -81,7 +81,7 @@ class ProductsController < ApplicationController
       redirect_to show_cart_products_path  
     else
 
-      session["item"].pop[item_id.to_i] 
+      session["item"].delete_at(session["item"].index(item_id.to_i)) 
       redirect_to show_cart_products_path  
     end
       
