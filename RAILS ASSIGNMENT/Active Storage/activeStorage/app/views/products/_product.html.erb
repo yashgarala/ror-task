@@ -1,0 +1,15 @@
+<div id="<%= dom_id product %>">
+  <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p>
+    <strong>Product image:</strong>
+    <% product.product_image.each do |product_image| %>
+    <%=product_image.content_type==%>
+      <div style="display:inline"><%= image_tag  product_image,style:"height:100px" %></div>
+    <% end %>
+  </p>
+
+</div>
