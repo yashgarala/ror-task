@@ -56,6 +56,12 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def delete_image
+    a=ActiveStorage::Attachment.find(params[:id])
+    a.purge
+    redirect_to products_path
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

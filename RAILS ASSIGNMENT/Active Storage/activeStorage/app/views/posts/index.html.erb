@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>
+  <%= "@yash" %>
+
+   <%= @yash %>
+
+<%= link_to "New post", new_post_path %>
+<div data-controller="hello"> 
+
+</div>
+<div data-controller="goodbye"> 
+
+</div>
+
+<div data-controller="utility--md5">
+  <%=link_to "hello ","#","data-action": "utility--md5#convert"%>
+</div>

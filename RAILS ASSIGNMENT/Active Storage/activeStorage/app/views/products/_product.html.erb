@@ -7,8 +7,11 @@
   <p>
     <strong>Product image:</strong>
     <% product.product_image.each do |product_image| %>
-    <%=product_image.content_type==%>
-      <div style="display:inline"><%= image_tag  product_image,style:"height:100px" %></div>
+    <%=product_image.content_type%>
+      <div style="display:inline">
+        <%= image_tag  product_image,style:"height:100px" %>
+        <%=link_to "Delete Image", delete_image_products_path(id: product_image)%>
+      </div>
     <% end %>
   </p>
 
