@@ -1,0 +1,47 @@
+ <tr id="<%= dom_id book %>">
+    
+  <td>
+    <%= book.name %>
+  </td>
+
+  <td>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%= book.id %>">
+  Show Image
+</button>
+
+  </td>
+
+  <td>
+    <%= book.author.name %>
+  </td>
+  <td>
+
+      <%= link_to "Show this book", book %>
+  </td>
+
+</tr>
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal_<%= book.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Book Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <% book.cover_photos.each do |x|%>
+        <%=image_tag x,style:"height:200px;margin:10px;",class:"shadow-lg p-3 mb-5 bg-body rounded" if book.cover_photos.attached? %>
+      <%end%>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>

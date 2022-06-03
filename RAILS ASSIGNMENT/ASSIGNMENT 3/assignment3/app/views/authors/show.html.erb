@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+<strong>Author Name:  - </strong> <%= @author.name %>
+</div>
+<div>
+<strong>Author Address:  - </strong> <%= @author.address %>
+</div>
+<strong>Author Image:  - </strong>
+
+<%=image_tag @author.profile_picture,style:"height:200px" if @author.profile_picture.filename? %>
+
+<div>
+<div class="d-flex">
+  <%= link_to "Edit this author", edit_author_path(@author) ,class:"btn btn-primary m-2"%> 
+  <%= link_to "Back to authors", authors_path ,class:"btn btn-primary m-2"%>
+
+  <%= button_to "Destroy this author", @author, method: :delete,class:"btn btn-danger m-2" %>
+</div>
+
+</div>
+<div id="books">
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Cover image</th>
+      <th scope="col">Author Name</th>
+      
+      <th scope="col">button</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+  <% @author.books.each do |book| %>
+    <%= render book %>
+  <% end %>
+</tbody>
+</table>
+</div>
