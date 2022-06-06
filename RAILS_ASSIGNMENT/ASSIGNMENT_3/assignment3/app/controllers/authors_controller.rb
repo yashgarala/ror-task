@@ -8,6 +8,8 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
+    p @author
+    # some_action
   end
 
   # GET /authors/new
@@ -49,8 +51,9 @@ class AuthorsController < ApplicationController
 
   # DELETE /authors/1 or /authors/1.json
   def destroy
-    @author.destroy
-
+    # @author.profile_picture.purge
+    
+   @author.destroy
     respond_to do |format|
       format.html { redirect_to authors_url, notice: "Author was successfully destroyed." }
       format.json { head :no_content }
@@ -58,7 +61,23 @@ class AuthorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  def some_action
+    # You can simply call Aws::S3::Client.new
+    # if you are already configuring using the
+    # above methods or configure by passing
+    # parameters explicitly
+    s3_client = Aws::S3::Client.new(
+      credentials: Aws::Credentials.new(ENV["access_key_id"],ENV["secret_access_key"] ),
+      region: 'ap-south-1'
+    )
+    s3_response = s3_client.delete_object({
+      bucket: 'yashgarala29', # required
+      key: '<object-key>', # required
+    })
+    # delete object by passing bucket and object key
+   end
+  
+  # Use callbacks to share common setup or constraints between actions.
     def set_author
       @author = Author.find(params[:id])
     end
